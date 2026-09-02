@@ -1,0 +1,36 @@
+.kitchen {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--iron-800);
+  border: 1px solid var(--iron-700);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem;
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.card--muted {
+  opacity: 0.85;
+}
+
+.hint {
+  color: var(--steam);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.buff-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--parchment);
+}

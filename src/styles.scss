@@ -1,0 +1,127 @@
+@use 'sass:color';
+
+:root {
+  --iron-950: #0f0d0c;
+  --iron-900: #17130f;
+  --iron-800: #221c16;
+  --iron-700: #322a21;
+  --iron-600: #493d30;
+  --wood-500: #6b4c33;
+  --steam: #b9aea1;
+  --parchment: #e9dfce;
+  --fire-low: #7a2e12;
+  --fire-mid: #d9560f;
+  --fire-high: #ff9b2e;
+  --fire-lit: #ffce54;
+  --ember-red: #c1391f;
+  --ok-green: #6f9a5a;
+  --danger: #b1432f;
+
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-deep: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at top, var(--iron-800) 0%, var(--iron-950) 65%);
+  color: var(--parchment);
+  font-family: 'Georgia', 'Iowan Old Style', 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--fire-high);
+  margin: 0 0 0.3em;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  border: 1px solid var(--iron-600);
+  background: var(--iron-800);
+  color: var(--parchment);
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  min-height: 44px;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &--active {
+    background: linear-gradient(180deg, var(--fire-mid), var(--fire-low));
+    border-color: var(--fire-high);
+    color: var(--iron-950);
+    font-weight: 700;
+  }
+}
+
+.cta {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--iron-950);
+  background: linear-gradient(180deg, var(--fire-lit), var(--fire-mid));
+  box-shadow: var(--shadow-deep);
+  min-height: 52px;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(1px);
+  }
+}
+
+.cta--ghost {
+  background: transparent;
+  border: 1px solid var(--iron-600);
+  color: var(--parchment);
+  box-shadow: none;
+}

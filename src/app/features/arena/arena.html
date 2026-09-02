@@ -1,0 +1,108 @@
+<div class="arena">
+  @if (phase() === 'empty') {
+    <div class="panel center">
+      <p>
+        No raid could be built with your current tools. Adjust your gear in the Book, then try
+        again.
+      </p>
+      <button type="button" class="cta" (click)="goHome()">Back to the Forge</button>
+    </div>
+  }
+
+  @if (raid() && currentSlot(); as slot) {
+    @if (phase() === 'set') {
+      <div class="progress">
+        Set {{ setIndex() + 1 }} / {{ slot.sets_planned }} &middot; Move {{ slotIndex() + 1 }} /
+        {{ totalSlots() }}
+      </div>
+
+      <div class="panel">
+        <p class="rune-tag">{{ runes[slot.rune_id].label }}</p>
+        <h1 class="cast-name">{{ slot.cast.name }}</h1>
+
+        <div class="illustration" [class]="'illustration--' + slot.rune_id"></div>
+
+        @if (slot.cast.cues[0]; as cue) {
+          <p class="cue">{{ cue }}</p>
+        }
+
+        <p class="target">{{ schemeLabel() }}</p>
+
+        <button type="button" class="cta" (click)="done()">Done</button>
+
+        <div class="secondary-row">
+          <button type="button" class="cta cta--ghost" (click)="tooHard()">Too hard</button>
+          <button type="button" class="cta cta--ghost" (click)="tooEasy()">Too easy</button>
+          <button type="button" class="cta cta--ghost" (click)="skipMove()">Skip move</button>
+        </div>
+      </div>
+    }
+
+    @if (phase() === 'rest') {
+      <div class="panel center">
+        <p class="rune-tag">Resting</p>
+        <p class="rest-clock">{{ restSecondsLeft() }}s</p>
+        <button type="button" class="cta cta--ghost" (click)="skipRest()">Skip rest</button>
+      </div>
+    }
+
+    @if (phase() === 'honor') {
+      <div class="panel center">
+        <h2>How did that move feel?</h2>
+        <p class="hint">Optional — Clean form earns a little extra mastery.</p>
+        <div class="secondary-row secondary-row--wrap">
+          <button type="button" class="cta cta--ghost" (click)="chooseHonor('Clean')">Clean</button>
+          <button type="button" class="cta cta--ghost" (click)="chooseHonor('Okay')">Okay</button>
+          <button type="button" class="cta cta--ghost" (click)="chooseHonor('Ugly')">Ugly</button>
+          <button type="button" class="cta cta--ghost" (click)="chooseHonor(null)">Skip</button>
+        </div>
+      </div>
+    }
+  }
+
+  @if (phase() === 'chest' && summary(); as s) {
+    <div class="panel center chest">
+      <p class="eyebrow">Chest</p>
+      <h1>Raid complete</h1>
+      <p class="reward">+{{ s.chapter_xp_awarded }} chapter XP</p>
+      <p class="reward">+{{ s.heat_awarded.toFixed(1) }} heat</p>
+      @if (s.athlete_level_up) {
+        <p class="reward reward--level">Level up! Now Athlete Level {{ s.new_athlete_level }}</p>
+      }
+      @if (s.combos.ids.length) {
+        <p class="combos">
+          Combos: {{ s.combos.ids.join(', ') }} (+{{ (s.combos.bonus_pct * 100).toFixed(0) }}%)
+        </p>
+      }
+      @if (loot(); as l) {
+        @if (l.shard) {
+          <p class="reward reward--loot">A cosmetic shard drops from the coals.</p>
+        }
+        @if (l.lore_page) {
+          <p class="reward reward--loot">A page of lore, tucked in the ash.</p>
+        }
+        @if (l.recipe_page) {
+          <p class="reward reward--loot">A recipe page, stained with soot.</p>
+        }
+      }
+      <button type="button" class="cta" (click)="proceedFromChest()">Continue</button>
+    </div>
+  }
+
+  @if (phase() === 'food') {
+    <div class="panel center">
+      <p class="eyebrow">Kitchen</p>
+      <h2>Fuel the fire?</h2>
+      <p class="hint">Never required. Never scored.</p>
+      <div class="secondary-row secondary-row--wrap">
+        <button type="button" class="cta cta--ghost" (click)="chooseFood('protein')">
+          Protein
+        </button>
+        <button type="button" class="cta cta--ghost" (click)="chooseFood('plate')">
+          Real plate
+        </button>
+        <button type="button" class="cta cta--ghost" (click)="chooseFood('skip')">Skip</button>
+      </div>
+    </div>
+  }
+</div>

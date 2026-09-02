@@ -1,0 +1,238 @@
+.forge {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.forge__header h1 {
+  font-size: 1.6rem;
+}
+
+.tip,
+.banner {
+  background: var(--iron-800);
+  border: 1px solid var(--iron-600);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  color: var(--steam);
+}
+
+.tip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+
+  &__close {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--iron-600);
+    color: var(--parchment);
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    min-height: 36px;
+  }
+}
+
+.banner--comeback {
+  border-color: var(--fire-mid);
+  color: var(--parchment);
+}
+
+.fire-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: linear-gradient(180deg, var(--iron-800), var(--iron-900));
+  border: 1px solid var(--iron-700);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.fire-pit {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--iron-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.flame {
+  width: 30px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--iron-700);
+  transition:
+    background 0.4s,
+    box-shadow 0.4s,
+    transform 0.4s;
+}
+
+.fire-panel--spark .flame {
+  background: var(--fire-low);
+  box-shadow: 0 0 10px 2px rgba(217, 86, 15, 0.35);
+}
+
+.fire-panel--warm .flame {
+  background: var(--fire-mid);
+  box-shadow: 0 0 16px 4px rgba(217, 86, 15, 0.5);
+  transform: scale(1.05);
+}
+
+.fire-panel--hot .flame {
+  background: var(--fire-high);
+  box-shadow: 0 0 22px 6px rgba(255, 155, 46, 0.6);
+  transform: scale(1.15);
+}
+
+.fire-panel--lit .flame {
+  background: var(--fire-lit);
+  box-shadow: 0 0 30px 10px rgba(255, 206, 84, 0.75);
+  transform: scale(1.25);
+}
+
+.fire-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.fire-state {
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--parchment);
+}
+
+.fire-bar,
+.xp-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--iron-700);
+  overflow: hidden;
+}
+
+.fire-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--fire-low), var(--fire-lit));
+  transition: width 0.4s;
+}
+
+.xp-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ok-green), #a9d18e);
+  transition: width 0.4s;
+}
+
+.fire-meta {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  color: var(--steam);
+}
+
+.stat-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1;
+  min-width: 110px;
+  background: var(--iron-800);
+  border: 1px solid var(--iron-700);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.9rem;
+}
+
+.stat--wide {
+  flex: 2;
+}
+
+.stat--buff {
+  border-color: var(--fire-mid);
+}
+
+.stat__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--steam);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat__value {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.rune-map h2 {
+  font-size: 1rem;
+  color: var(--steam);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.rune-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.7rem;
+}
+
+.rune-plate {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--iron-700);
+  background: var(--iron-800);
+  padding: 0.75rem;
+  text-align: center;
+
+  &__label {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  &__state {
+    margin: 0.25rem 0 0;
+    font-size: 0.78rem;
+    color: var(--steam);
+  }
+
+  &__mastery {
+    margin: 0.2rem 0 0;
+    font-size: 0.7rem;
+    color: var(--steam);
+    opacity: 0.8;
+  }
+
+  &--asleep {
+    opacity: 0.45;
+  }
+
+  &--ready {
+    border-color: var(--ok-green);
+  }
+
+  &--hot {
+    border-color: var(--fire-high);
+    box-shadow: 0 0 12px rgba(255, 155, 46, 0.35);
+  }
+
+  &--tempering {
+    border-color: var(--wood-500);
+  }
+}
+
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}

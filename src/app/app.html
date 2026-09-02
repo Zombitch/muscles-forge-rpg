@@ -1,0 +1,17 @@
+<main [class.main--with-nav]="showNav()">
+  <router-outlet />
+</main>
+
+@if (showNav()) {
+  <nav class="tab-bar">
+    <a
+      routerLink="/"
+      routerLinkActive="tab--active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="tab"
+      >Forge</a
+    >
+    <a routerLink="/kitchen" routerLinkActive="tab--active" class="tab">Kitchen</a>
+    <a routerLink="/book" routerLinkActive="tab--active" class="tab">Book</a>
+  </nav>
+}

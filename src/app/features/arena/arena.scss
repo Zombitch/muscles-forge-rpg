@@ -1,0 +1,119 @@
+.arena {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress {
+  text-align: center;
+  color: var(--steam);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.panel {
+  background: var(--iron-800);
+  border: 1px solid var(--iron-700);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-deep);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.panel.center {
+  align-items: center;
+  text-align: center;
+}
+
+.rune-tag {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--fire-high);
+}
+
+.cast-name {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.illustration {
+  height: 140px;
+  border-radius: var(--radius-md);
+  background: radial-gradient(circle at 30% 30%, var(--fire-mid), var(--iron-900) 70%);
+  opacity: 0.85;
+}
+
+.cue {
+  color: var(--steam);
+  font-style: italic;
+  margin: 0;
+}
+
+.target {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.secondary-row {
+  display: flex;
+  gap: 0.5rem;
+
+  .cta {
+    flex: 1;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+
+    .cta {
+      flex: 1 1 45%;
+    }
+  }
+}
+
+.rest-clock {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--fire-high);
+  margin: 0.5rem 0;
+}
+
+.hint {
+  color: var(--steam);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.chest {
+  gap: 0.5rem;
+}
+
+.reward {
+  margin: 0;
+  font-size: 1rem;
+
+  &--level {
+    color: var(--fire-lit);
+    font-weight: 700;
+  }
+
+  &--loot {
+    color: var(--steam);
+    font-style: italic;
+  }
+}
+
+.combos {
+  color: var(--ok-green);
+  font-size: 0.85rem;
+  margin: 0.4rem 0;
+}

@@ -1,0 +1,52 @@
+.onboarding {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.onboarding__intro {
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  h1 {
+    font-size: 1.9rem;
+    color: var(--parchment);
+  }
+
+  .sub {
+    color: var(--steam);
+    margin: 0.3em 0 0;
+  }
+}
+
+.q {
+  h2 {
+    font-size: 1.05rem;
+    color: var(--parchment);
+  }
+
+  .hint {
+    color: var(--steam);
+    font-size: 0.85rem;
+    margin: -0.2em 0 0.6em;
+  }
+}
+
+.name-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--iron-600);
+  background: var(--iron-800);
+  color: var(--parchment);
+  font-size: 1rem;
+  min-height: 44px;
+
+  &::placeholder {
+    color: var(--steam);
+    opacity: 0.6;
+  }
+}

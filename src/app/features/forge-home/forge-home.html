@@ -1,0 +1,86 @@
+<div class="forge">
+  <header class="forge__header">
+    <p class="eyebrow">The Forge</p>
+    <h1>{{ profile().hero_name || 'Smith' }}'s Workshop</h1>
+  </header>
+
+  @if (showSorenessTip()) {
+    <div class="tip">
+      <p>
+        Sore is the metal tempering, not breaking. A short Ember raid keeps things moving if you
+        need it.
+      </p>
+      <button type="button" class="tip__close" (click)="dismissTip()">Got it</button>
+    </div>
+  }
+
+  @if (isComebackEligible()) {
+    <div class="banner banner--comeback">
+      <p>
+        <strong>The fire slept a while.</strong> {{ daysQuiet() }} quiet days. Welcome back — short
+        work today.
+      </p>
+    </div>
+  }
+
+  <section class="fire-panel" [class]="'fire-panel--' + fire().toLowerCase()">
+    <div class="fire-pit">
+      <div class="flame"></div>
+    </div>
+    <div class="fire-info">
+      <p class="fire-state">{{ fire() }}{{ isLit() ? ' — Weekly Win!' : '' }}</p>
+      <div class="fire-bar">
+        <div class="fire-bar__fill" [style.width.%]="(heatSum() / heatTarget) * 100"></div>
+      </div>
+      <p class="fire-meta">
+        {{ heatSum().toFixed(1) }} / {{ heatTarget.toFixed(1) }} heat this week
+      </p>
+    </div>
+  </section>
+
+  <section class="stat-row">
+    <div class="stat">
+      <p class="stat__label">Athlete level</p>
+      <p class="stat__value">{{ profile().athlete_level }}</p>
+    </div>
+    @if (levelProgress(); as lp) {
+      <div class="stat stat--wide">
+        <p class="stat__label">Chapter XP → Lv {{ lp.next_level }}</p>
+        <div class="xp-bar">
+          <div
+            class="xp-bar__fill"
+            [style.width.%]="(lp.xp_into_level / lp.xp_for_level) * 100"
+          ></div>
+        </div>
+      </div>
+    }
+    @if (wellFed()) {
+      <div class="stat stat--buff">
+        <p class="stat__label">Buff</p>
+        <p class="stat__value">Well-Fed</p>
+      </div>
+    }
+  </section>
+
+  <section class="rune-map">
+    <h2>Rune Map</h2>
+    <div class="rune-grid">
+      @for (id of allRuneIds; track id) {
+        <div class="rune-plate" [class]="'rune-plate--' + runeState(id).toLowerCase()">
+          <p class="rune-plate__label">{{ runes[id].label }}</p>
+          <p class="rune-plate__state">{{ runeState(id) }}</p>
+          @if (runeState(id) !== 'Asleep') {
+            <p class="rune-plate__mastery">{{ runeMastery(id) }} mastery</p>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+  <div class="cta-stack">
+    <button type="button" class="cta" (click)="enterArena()">{{ ctaLabel() }}</button>
+    <button type="button" class="cta cta--ghost" (click)="quickEmber()">
+      Quick Ember (~8 min)
+    </button>
+  </div>
+</div>

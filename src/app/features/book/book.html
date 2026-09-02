@@ -1,0 +1,130 @@
+<div class="book">
+  <header class="book__header">
+    <p class="eyebrow">The Book</p>
+    <h1>Season, Titles &amp; Settings</h1>
+  </header>
+
+  <section class="card">
+    <h2>Season 1 — Light the Forge</h2>
+    <p class="hint">Week {{ seasonWeek() }} of {{ s1Weeks }}</p>
+    <div class="week-bar">
+      <div class="week-bar__fill" [style.width.%]="(seasonWeek() / s1Weeks) * 100"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Titles</h2>
+    @if (profile().titles.length === 0) {
+      <p class="hint">None earned yet. Finish Season 1 to become Kindler.</p>
+    } @else {
+      <ul class="titles">
+        @for (t of profile().titles; track t) {
+          <li>{{ t }}</li>
+        }
+      </ul>
+    }
+  </section>
+
+  <section class="card">
+    <h2>Hero name</h2>
+    <input
+      class="name-input"
+      type="text"
+      maxlength="24"
+      [value]="profile().hero_name"
+      (input)="updateHeroName($any($event.target).value)"
+    />
+  </section>
+
+  <section class="card">
+    <h2>Where do you train?</h2>
+    <div class="chip-row">
+      @for (p of placeOptions; track p) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="profile().place === p"
+          (click)="setPlace(p)"
+        >
+          {{ p === 'both' ? 'Both' : p === 'home' ? 'Home' : 'Gym' }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Time box</h2>
+    <div class="chip-row">
+      @for (t of timeBoxOptions; track t) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="profile().time_box_min === t"
+          (click)="setTimeBox(t)"
+        >
+          {{ t }} min
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Tools</h2>
+    <div class="chip-row">
+      @for (tool of toolIds; track tool) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="profile().tools.includes(tool)"
+          (click)="toggleTool(tool)"
+        >
+          {{ toolLabels[tool] }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Joint flags</h2>
+    <p class="hint">
+      Always reachable — the resolver rebuilds future raids the moment you change these.
+    </p>
+    <div class="chip-row">
+      @for (flag of jointFlagIds; track flag) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="profile().joint_flags.includes(flag)"
+          (click)="toggleJointFlag(flag)"
+        >
+          {{ jointLabels[flag] }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Illness</h2>
+    <p class="hint">Freezes the week like a Festival. No shame, no lost heat.</p>
+    @if (illnessActive) {
+      <p class="active-note">
+        Festival rules active until {{ profile().illness_until | date: 'mediumDate' }}.
+      </p>
+      <button type="button" class="chip" (click)="clearIllness()">I'm back</button>
+    } @else {
+      <div class="chip-row">
+        <button type="button" class="chip" (click)="setIllness(3)">3 days</button>
+        <button type="button" class="chip" (click)="setIllness(7)">7 days</button>
+        <button type="button" class="chip" (click)="setIllness(14)">14 days</button>
+      </div>
+    }
+  </section>
+
+  <section class="card card--muted">
+    <h2>History</h2>
+    <p class="hint">
+      {{ profile().full_raids_lifetime }} full raids completed &middot;
+      {{ profile().days_touched }} days touched.
+    </p>
+  </section>
+</div>

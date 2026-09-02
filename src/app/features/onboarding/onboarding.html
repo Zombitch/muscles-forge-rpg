@@ -1,0 +1,89 @@
+<div class="onboarding">
+  <header class="onboarding__intro">
+    <p class="eyebrow">Forge &amp; Hearth</p>
+    <h1>Let's light the forge.</h1>
+    <p class="sub">A few quick questions, then straight to your first raid.</p>
+  </header>
+
+  <section class="q">
+    <h2>Where do you train?</h2>
+    <div class="chip-row">
+      @for (p of placeOptions; track p) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="place() === p"
+          (click)="setPlace(p)"
+        >
+          {{ p === 'both' ? 'Both' : p === 'home' ? 'Home' : 'Gym' }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="q">
+    <h2>How much time do you have per raid?</h2>
+    <div class="chip-row">
+      @for (t of timeBoxOptions; track t) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="timeBox() === t"
+          (click)="setTimeBox(t)"
+        >
+          {{ t }} min
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="q">
+    <h2>What tools do you have?</h2>
+    <p class="hint">Pick everything that applies.</p>
+    <div class="chip-row">
+      @for (tool of toolIds; track tool) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="tools().includes(tool)"
+          (click)="toggleTool(tool)"
+        >
+          {{ toolLabels[tool] }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="q">
+    <h2>Any joints we should protect?</h2>
+    <p class="hint">The forge will route around these.</p>
+    <div class="chip-row">
+      @for (flag of jointFlagIds; track flag) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--active]="jointFlags().includes(flag)"
+          (click)="toggleJointFlag(flag)"
+        >
+          {{ jointLabels[flag] }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="q">
+    <h2>What should we call you?</h2>
+    <input
+      class="name-input"
+      type="text"
+      placeholder="Smith"
+      maxlength="24"
+      [value]="heroName()"
+      (input)="heroName.set($any($event.target).value)"
+    />
+  </section>
+
+  <button type="button" class="cta" [disabled]="!canBegin" (click)="begin()">
+    Enter the Arena
+  </button>
+</div>

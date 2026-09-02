@@ -1,0 +1,68 @@
+.book {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.book__header h1 {
+  font-size: 1.5rem;
+}
+
+.card {
+  background: var(--iron-800);
+  border: 1px solid var(--iron-700);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem;
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.card--muted {
+  opacity: 0.85;
+}
+
+.hint {
+  color: var(--steam);
+  font-size: 0.85rem;
+  margin: 0 0 0.6em;
+}
+
+.active-note {
+  color: var(--fire-high);
+  font-size: 0.9rem;
+}
+
+.week-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--iron-700);
+  overflow: hidden;
+}
+
+.week-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--fire-low), var(--fire-lit));
+}
+
+.titles {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--parchment);
+}
+
+.name-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--iron-600);
+  background: var(--iron-900);
+  color: var(--parchment);
+  font-size: 1rem;
+  min-height: 44px;
+}
