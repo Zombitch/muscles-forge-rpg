@@ -11,9 +11,10 @@
   font-size: 1.5rem;
 }
 
+// Book list rows — night-1
 .card {
-  background: var(--iron-800);
-  border: 1px solid var(--iron-700);
+  background: var(--night-1);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-lg);
   padding: 1.1rem 1.25rem;
 
@@ -28,41 +29,41 @@
 }
 
 .hint {
-  color: var(--steam);
+  color: var(--snow-0);
   font-size: 0.85rem;
   margin: 0 0 0.6em;
 }
 
 .active-note {
-  color: var(--fire-high);
+  color: var(--snow-1);
   font-size: 0.9rem;
 }
 
 .week-bar {
   height: 8px;
   border-radius: 999px;
-  background: var(--iron-700);
+  background: var(--night-3);
   overflow: hidden;
 }
 
 .week-bar__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--fire-low), var(--fire-lit));
+  background: var(--snow-0);
 }
 
 .titles {
   margin: 0;
   padding-left: 1.2rem;
-  color: var(--parchment);
+  color: var(--snow-1);
 }
 
 .name-input {
   width: 100%;
   padding: 0.7rem 1rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--iron-600);
-  background: var(--iron-900);
-  color: var(--parchment);
+  border: 1px solid var(--night-3);
+  background: var(--night-2);
+  color: var(--snow-2);
   font-size: 1rem;
   min-height: 44px;
 }

@@ -10,14 +10,15 @@
 
 .progress {
   text-align: center;
-  color: var(--steam);
+  color: var(--snow-0);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
 }
 
+// In-raid set card — elevated sheet, night-2
 .panel {
-  background: var(--iron-800);
-  border: 1px solid var(--iron-700);
+  background: var(--night-2);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   box-shadow: var(--shadow-deep);
@@ -36,23 +37,26 @@
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.75rem;
-  color: var(--fire-high);
+  color: var(--snow-0);
 }
 
 .cast-name {
   margin: 0;
   font-size: 1.6rem;
+  color: var(--snow-2);
 }
 
+// Cast illustration — the one place workshop-fantasy fire imagery is allowed
+// as an ember highlight; it is decorative art, not a UI surface.
 .illustration {
   height: 140px;
   border-radius: var(--radius-md);
-  background: radial-gradient(circle at 30% 30%, var(--fire-mid), var(--iron-900) 70%);
+  background: radial-gradient(circle at 30% 30%, var(--accent-ember-a), var(--night-0) 70%);
   opacity: 0.85;
 }
 
 .cue {
-  color: var(--steam);
+  color: var(--snow-0);
   font-style: italic;
   margin: 0;
 }
@@ -61,6 +65,7 @@
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
+  color: var(--snow-2);
 }
 
 .secondary-row {
@@ -83,12 +88,12 @@
 .rest-clock {
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--fire-high);
+  color: var(--snow-2);
   margin: 0.5rem 0;
 }
 
 .hint {
-  color: var(--steam);
+  color: var(--snow-0);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -100,20 +105,22 @@
 .reward {
   margin: 0;
   font-size: 1rem;
+  color: var(--snow-1);
 
+  // Level-up / loot are celebratory juice moments — ember accent allowed here only.
   &--level {
-    color: var(--fire-lit);
+    color: var(--accent-ember-b);
     font-weight: 700;
   }
 
   &--loot {
-    color: var(--steam);
+    color: var(--accent-ember-a);
     font-style: italic;
   }
 }
 
 .combos {
-  color: var(--ok-green);
+  color: var(--snow-0);
   font-size: 0.85rem;
   margin: 0.4rem 0;
 }

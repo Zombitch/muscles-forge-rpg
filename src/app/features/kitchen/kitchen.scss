@@ -7,9 +7,10 @@
   gap: 1.25rem;
 }
 
+// Kitchen jars / cards — night-1 empty state
 .card {
-  background: var(--iron-800);
-  border: 1px solid var(--iron-700);
+  background: var(--night-1);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-lg);
   padding: 1.1rem 1.25rem;
 
@@ -24,7 +25,7 @@
 }
 
 .hint {
-  color: var(--steam);
+  color: var(--snow-0);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -32,5 +33,5 @@
 .buff-list {
   margin: 0;
   padding-left: 1.1rem;
-  color: var(--parchment);
+  color: var(--snow-1);
 }

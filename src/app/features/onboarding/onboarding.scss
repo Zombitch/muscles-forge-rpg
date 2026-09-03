@@ -13,11 +13,11 @@
 
   h1 {
     font-size: 1.9rem;
-    color: var(--parchment);
+    color: var(--snow-2);
   }
 
   .sub {
-    color: var(--steam);
+    color: var(--snow-0);
     margin: 0.3em 0 0;
   }
 }
@@ -25,11 +25,11 @@
 .q {
   h2 {
     font-size: 1.05rem;
-    color: var(--parchment);
+    color: var(--snow-2);
   }
 
   .hint {
-    color: var(--steam);
+    color: var(--snow-0);
     font-size: 0.85rem;
     margin: -0.2em 0 0.6em;
   }
@@ -39,14 +39,14 @@
   width: 100%;
   padding: 0.8rem 1rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--iron-600);
-  background: var(--iron-800);
-  color: var(--parchment);
+  border: 1px solid var(--night-3);
+  background: var(--night-2);
+  color: var(--snow-2);
   font-size: 1rem;
   min-height: 44px;
 
   &::placeholder {
-    color: var(--steam);
+    color: var(--snow-0);
     opacity: 0.6;
   }
 }

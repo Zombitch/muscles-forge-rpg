@@ -13,12 +13,12 @@
 
 .tip,
 .banner {
-  background: var(--iron-800);
-  border: 1px solid var(--iron-600);
+  background: var(--night-1);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-md);
   padding: 0.9rem 1rem;
   font-size: 0.9rem;
-  color: var(--steam);
+  color: var(--snow-0);
 }
 
 .tip {
@@ -30,8 +30,8 @@
   &__close {
     flex-shrink: 0;
     background: transparent;
-    border: 1px solid var(--iron-600);
-    color: var(--parchment);
+    border: 1px solid var(--night-3);
+    color: var(--snow-1);
     border-radius: 999px;
     padding: 0.4rem 0.8rem;
     min-height: 36px;
@@ -39,16 +39,21 @@
 }
 
 .banner--comeback {
-  border-color: var(--fire-mid);
-  color: var(--parchment);
+  color: var(--snow-1);
+
+  strong {
+    color: var(--snow-2);
+  }
 }
 
+// Home hero well / fire pit frame — Polar Night surface; the flame itself is
+// the one illustration-only element allowed a warm ember highlight (GDD §2.1).
 .fire-panel {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  background: linear-gradient(180deg, var(--iron-800), var(--iron-900));
-  border: 1px solid var(--iron-700);
+  background: var(--night-1);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
 }
@@ -57,7 +62,7 @@
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  background: var(--iron-950);
+  background: var(--night-0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +74,7 @@
   width: 30px;
   height: 42px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: var(--iron-700);
+  background: var(--night-3);
   transition:
     background 0.4s,
     box-shadow 0.4s,
@@ -77,25 +82,25 @@
 }
 
 .fire-panel--spark .flame {
-  background: var(--fire-low);
-  box-shadow: 0 0 10px 2px rgba(217, 86, 15, 0.35);
+  background: var(--accent-ember-a);
+  box-shadow: 0 0 8px 2px rgba(208, 135, 112, 0.3);
 }
 
 .fire-panel--warm .flame {
-  background: var(--fire-mid);
-  box-shadow: 0 0 16px 4px rgba(217, 86, 15, 0.5);
+  background: var(--accent-ember-a);
+  box-shadow: 0 0 14px 4px rgba(208, 135, 112, 0.45);
   transform: scale(1.05);
 }
 
 .fire-panel--hot .flame {
-  background: var(--fire-high);
-  box-shadow: 0 0 22px 6px rgba(255, 155, 46, 0.6);
+  background: var(--accent-ember-b);
+  box-shadow: 0 0 20px 6px rgba(235, 203, 139, 0.5);
   transform: scale(1.15);
 }
 
 .fire-panel--lit .flame {
-  background: var(--fire-lit);
-  box-shadow: 0 0 30px 10px rgba(255, 206, 84, 0.75);
+  background: var(--accent-ember-b);
+  box-shadow: 0 0 28px 10px rgba(235, 203, 139, 0.7);
   transform: scale(1.25);
 }
 
@@ -107,33 +112,28 @@
 .fire-state {
   font-weight: 700;
   margin: 0 0 0.5rem;
-  color: var(--parchment);
+  color: var(--snow-2);
 }
 
 .fire-bar,
 .xp-bar {
   height: 8px;
   border-radius: 999px;
-  background: var(--iron-700);
+  background: var(--night-3);
   overflow: hidden;
 }
 
-.fire-bar__fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--fire-low), var(--fire-lit));
-  transition: width 0.4s;
-}
-
+.fire-bar__fill,
 .xp-bar__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--ok-green), #a9d18e);
+  background: var(--snow-0);
   transition: width 0.4s;
 }
 
 .fire-meta {
   margin: 0.4rem 0 0;
   font-size: 0.8rem;
-  color: var(--steam);
+  color: var(--snow-0);
 }
 
 .stat-row {
@@ -145,8 +145,8 @@
 .stat {
   flex: 1;
   min-width: 110px;
-  background: var(--iron-800);
-  border: 1px solid var(--iron-700);
+  background: var(--night-1);
+  border: 1px solid var(--night-3);
   border-radius: var(--radius-md);
   padding: 0.75rem 0.9rem;
 }
@@ -155,14 +155,15 @@
   flex: 2;
 }
 
+// Well-Fed indicator — frost accent icon/border only, per GDD §2.1 juice accents.
 .stat--buff {
-  border-color: var(--fire-mid);
+  border-color: var(--accent-frost);
 }
 
 .stat__label {
   margin: 0 0 0.35rem;
   font-size: 0.75rem;
-  color: var(--steam);
+  color: var(--snow-0);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -171,11 +172,12 @@
   margin: 0;
   font-size: 1.3rem;
   font-weight: 700;
+  color: var(--snow-2);
 }
 
 .rune-map h2 {
   font-size: 1rem;
-  color: var(--steam);
+  color: var(--snow-0);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
@@ -189,44 +191,55 @@
 
 .rune-plate {
   border-radius: var(--radius-md);
-  border: 1px solid var(--iron-700);
-  background: var(--iron-800);
+  border: 1px solid var(--night-3);
+  background: var(--night-1);
   padding: 0.75rem;
   text-align: center;
 
   &__label {
     margin: 0;
     font-weight: 700;
+    color: var(--snow-2);
   }
 
   &__state {
     margin: 0.25rem 0 0;
     font-size: 0.78rem;
-    color: var(--steam);
+    color: var(--snow-0);
   }
 
   &__mastery {
     margin: 0.2rem 0 0;
     font-size: 0.7rem;
-    color: var(--steam);
+    color: var(--snow-0);
     opacity: 0.8;
   }
 
+  // Asleep / locked — night-1 dimmed, snow-0
   &--asleep {
-    opacity: 0.45;
+    opacity: 0.6;
   }
 
+  // Ready — night-2, snow-2 name
   &--ready {
-    border-color: var(--ok-green);
+    background: var(--night-2);
   }
 
+  // Hot — same surface as Ready, distinguished only by a thin ember glow (juice)
   &--hot {
-    border-color: var(--fire-high);
-    box-shadow: 0 0 12px rgba(255, 155, 46, 0.35);
+    background: var(--night-2);
+    border-color: var(--accent-ember-a);
+    box-shadow: 0 0 10px rgba(208, 135, 112, 0.3);
   }
 
+  // Tempering — night-1, snow-0, dimmed plate
   &--tempering {
-    border-color: var(--wood-500);
+    background: var(--night-1);
+    opacity: 0.75;
+
+    .rune-plate__label {
+      color: var(--snow-0);
+    }
   }
 }
 

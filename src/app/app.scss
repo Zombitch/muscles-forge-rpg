@@ -16,8 +16,8 @@ main {
   left: 0;
   right: 0;
   display: flex;
-  background: var(--iron-900);
-  border-top: 1px solid var(--iron-700);
+  background: var(--night-1);
+  border-top: 1px solid var(--night-3);
   padding: 0.4rem 0.6rem calc(0.4rem + env(safe-area-inset-bottom));
   z-index: 10;
 }
@@ -26,7 +26,7 @@ main {
   flex: 1;
   text-align: center;
   padding: 0.6rem 0;
-  color: var(--steam);
+  color: var(--snow-0);
   text-decoration: none;
   font-size: 0.85rem;
   border-radius: var(--radius-md);
@@ -37,6 +37,6 @@ main {
 }
 
 .tab--active {
-  color: var(--fire-lit);
+  color: var(--snow-2);
   font-weight: 700;
 }
